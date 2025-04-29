@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 
 app.get('/etudiants', async (req, res) => {
     try {
-        const Etudiant = require('./models/etudiant');
+        const Etudiant = require('./models/Etudiant');
         const etudiants = await Etudiant.find();
         res.render('etudiants', { etudiants });
     } catch (err) {
@@ -54,7 +54,7 @@ app.get('/etudiants', async (req, res) => {
 
 app.get('/livres', async (req, res) => {
     try {
-        const Livre = require('./models/livre');
+        const Livre = require('./models/Livre');
         const livres = await Livre.find();
         res.render('livres', { livres });
     } catch (err) {
@@ -65,9 +65,9 @@ app.get('/livres', async (req, res) => {
 
 app.get('/emprunts', async (req, res) => {
     try {
-        const Emprunt = require('./models/emprunt');
-        const Etudiant = require('./models/etudiant');
-        const Livre = require('./models/livre');
+        const Emprunt = require('./models/Emprunt');
+        const Etudiant = require('./models/Etudiant');
+        const Livre = require('./models/Livre');
         
         const emprunts = await Emprunt.find()
             .populate('etudiant')
@@ -83,7 +83,7 @@ app.get('/emprunts', async (req, res) => {
 });
 
 // Connexion à la base de données
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb+srv://baghaztaha2005:0VAqsQeqkFCWThax@cluster0.va0aaef.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
