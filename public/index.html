@@ -3,585 +3,645 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bibliothèque Royale - Gestion Élégante</title>
+  <title>Bibliothèque Moderne - Gestion Intelligente</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Palette de couleurs luxueuses */
+    /* Variables CSS modernes */
     :root {
-      --royal-gold: #c9a96b;        /* Or royal */
-      --deep-gold: #b8860b;         /* Or profond */
-      --cream: #f5f5dc;             /* Crème */
-      --rich-burgundy: #722f37;     /* Bordeaux riche */
-      --dark-burgundy: #5d1a1d;     /* Bordeaux foncé */
-      --ivory: #fffff0;             /* Ivoire */
-      --champagne: #f7e7ce;         /* Champagne */
-      --bronze: #cd7f32;            /* Bronze */
-      --mahogany: #c04000;          /* Acajou */
-      --pearl: #eae0c8;             /* Perle */
-      --charcoal: #36454f;          /* Charbon */
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #a5b4fc;
+      --secondary: #64748b;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --border-radius: 12px;
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      background: linear-gradient(135deg, var(--champagne) 0%, var(--ivory) 50%, var(--pearl) 100%);
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--charcoal);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      color: var(--gray-800);
       min-height: 100vh;
-      background-attachment: fixed;
-      position: relative;
+      line-height: 1.6;
     }
 
-    /* Texture de fond subtile */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 20% 50%, rgba(201, 169, 107, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(114, 47, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(205, 127, 50, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* En-tête principal */
-    h1 {
-      font-family: 'Playfair Display', serif;
-      color: var(--rich-burgundy);
-      font-weight: 700;
-      font-size: 3rem;
-      letter-spacing: 3px;
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    h1::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--royal-gold), var(--deep-gold), var(--royal-gold));
-      border-radius: 2px;
-    }
-
-    h1::before {
-      content: '◆';
-      position: absolute;
-      left: 50%;
-      bottom: -35px;
-      transform: translateX(-50%);
-      color: var(--royal-gold);
-      font-size: 1.2rem;
-    }
-
-    /* Titres des sections */
-    h2 {
-      font-family: 'Playfair Display', serif;
-      color: var(--dark-burgundy);
-      font-weight: 600;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
+    /* Header moderne */
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 2rem 0;
       margin-bottom: 2rem;
       position: relative;
-      padding-left: 25px;
-    }
-
-    h2::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 15px;
-      height: 15px;
-      background: linear-gradient(45deg, var(--royal-gold), var(--bronze));
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Style des cartes */
-    .card {
-      background: linear-gradient(145deg, var(--ivory), var(--cream));
-      border: 2px solid var(--royal-gold);
-      border-radius: 20px;
-      box-shadow: 
-        0 15px 35px rgba(114, 47, 55, 0.15),
-        0 5px 15px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-      margin-bottom: 3rem;
       overflow: hidden;
-      position: relative;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .card::before {
+    .header::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--royal-gold), var(--bronze), var(--deep-gold));
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
     }
 
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 
-        0 25px 50px rgba(114, 47, 55, 0.2),
-        0 10px 30px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      border-color: var(--deep-gold);
-    }
-
-    .card-body {
-      padding: 3rem;
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
       position: relative;
+      z-index: 1;
     }
 
-    /* Personnalisation des boutons */
-    .btn-custom {
-      background: linear-gradient(145deg, var(--rich-burgundy), var(--dark-burgundy));
-      color: var(--ivory);
-      border: 2px solid var(--royal-gold);
-      border-radius: 30px;
-      padding: 15px 30px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
+    .header .subtitle {
+      text-align: center;
       font-size: 1.1rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 
-        0 8px 20px rgba(114, 47, 55, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      opacity: 0.9;
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+
+    /* Container principal */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Cards modernes */
+    .modern-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
       transition: all 0.3s ease;
-      position: relative;
       overflow: hidden;
     }
 
-    .btn-custom::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
+    .modern-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
     }
 
-    .btn-custom:hover {
-      background: linear-gradient(145deg, var(--dark-burgundy), var(--mahogany));
-      border-color: var(--deep-gold);
-      color: var(--ivory);
-      transform: translateY(-3px);
-      box-shadow: 
-        0 12px 30px rgba(114, 47, 55, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    .modern-card-header {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 1.5rem 2rem;
     }
 
-    .btn-custom:hover::before {
-      left: 100%;
+    .modern-card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    /* Style des champs de formulaire */
+    .modern-card-body {
+      padding: 2rem;
+    }
+
+    /* Formulaires modernes */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 500;
+      color: var(--gray-700);
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
     .form-control, .form-select {
-      background: linear-gradient(145deg, var(--ivory), var(--champagne));
-      border: 2px solid var(--pearl);
-      border-radius: 15px;
-      padding: 15px 20px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--charcoal);
-      transition: all 0.3s ease;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      background: var(--white);
+      color: var(--gray-900);
+      transition: all 0.2s ease;
+      font-family: inherit;
     }
 
     .form-control:focus, .form-select:focus {
-      border-color: var(--royal-gold);
-      background: var(--ivory);
-      box-shadow: 
-        0 0 0 0.3rem rgba(201, 169, 107, 0.25),
-        inset 0 2px 4px rgba(0, 0, 0, 0.1);
-      transform: translateY(-2px);
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgb(99 102 241 / 0.1);
     }
-    
+
     .form-control::placeholder {
-      color: rgba(54, 69, 79, 0.6);
-      font-style: italic;
+      color: var(--gray-400);
     }
 
-    /* Labels des formulaires */
-    .form-label {
-      color: var(--dark-burgundy);
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      text-transform: capitalize;
+    /* Checkbox moderne */
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    /* Cases à cocher */
     .form-check-input {
-      background-color: var(--ivory);
-      border: 2px solid var(--royal-gold);
-      border-radius: 6px;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid var(--gray-300);
+      border-radius: 4px;
+      background: var(--white);
+      transition: all 0.2s ease;
     }
-    
+
     .form-check-input:checked {
-      background-color: var(--rich-burgundy);
-      border-color: var(--deep-gold);
-      box-shadow: 0 2px 8px rgba(114, 47, 55, 0.3);
+      background: var(--primary);
+      border-color: var(--primary);
     }
-    
+
     .form-check-label {
-      color: var(--charcoal);
       font-weight: 500;
-      margin-left: 10px;
+      color: var(--gray-700);
+      cursor: pointer;
     }
 
-    /* Style des éléments de liste */
-    .list-group-item {
-      background: linear-gradient(145deg, var(--ivory), var(--cream));
-      border: 1px solid var(--pearl);
-      border-radius: 15px !important;
-      padding: 20px 25px;
-      margin-bottom: 15px;
-      color: var(--charcoal);
-      transition: all 0.4s ease;
+    /* Boutons modernes */
+    .btn-modern {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #059669;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #dc2626;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Liste moderne */
+    .modern-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modern-list-item {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .list-group-item::before {
+    .modern-list-item:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    .modern-list-item::before {
       content: '';
       position: absolute;
       left: 0;
       top: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--royal-gold), var(--bronze));
-      transform: scaleY(0);
-      transition: transform 0.3s ease;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary);
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      opacity: 0;
+      transition: opacity 0.2s ease;
     }
 
-    .list-group-item:hover {
-      background: linear-gradient(145deg, var(--champagne), var(--pearl));
-      transform: translateX(10px);
-      box-shadow: 0 8px 25px rgba(114, 47, 55, 0.2);
-      border-color: var(--royal-gold);
+    .modern-list-item:hover::before {
+      opacity: 1;
     }
 
-    .list-group-item:hover::before {
-      transform: scaleY(1);
-    }
-
-    /* Icônes */
-    .bi {
-      color: var(--royal-gold);
-      margin-right: 12px;
-      font-size: 1.2rem;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Container principal */
-    .container {
-      max-width: 1200px;
-      padding: 3rem;
-      background: linear-gradient(145deg, rgba(255, 255, 240, 0.9), rgba(245, 245, 220, 0.8));
-      border-radius: 30px;
-      box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.15),
-        0 10px 30px rgba(114, 47, 55, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      border: 3px solid var(--royal-gold);
-      backdrop-filter: blur(10px);
-      position: relative;
-    }
-
-    .container::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, var(--royal-gold), var(--bronze), var(--deep-gold), var(--royal-gold));
-      border-radius: 32px;
-      z-index: -1;
-    }
-
-    /* Animation pour les nouveaux éléments */
-    @keyframes luxuryFadeIn {
-      from { 
-        opacity: 0; 
-        transform: translateY(30px) scale(0.9); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-      }
-    }
-
-    .list-group-item {
-      animation: luxuryFadeIn 0.6s ease forwards;
-    }
-
-    /* Style pour les alertes */
-    .alert-success {
-      background: linear-gradient(145deg, rgba(201, 169, 107, 0.2), rgba(205, 127, 50, 0.1));
-      border: 2px solid var(--royal-gold);
-      color: var(--dark-burgundy);
-      border-radius: 15px;
+    /* Badges modernes */
+    .badge-modern {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
       font-weight: 500;
-    }
-
-    /* Style des badges */
-    .badge-disponible {
-      background: linear-gradient(145deg, rgba(40, 167, 69, 0.2), rgba(40, 167, 69, 0.1));
-      color: #155724;
-      border: 2px solid #28a745;
-      padding: 8px 16px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
+      border-radius: 9999px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.05em;
     }
 
-    .badge-emprunte {
-      background: linear-gradient(145deg, rgba(220, 53, 69, 0.2), rgba(220, 53, 69, 0.1));
-      color: #721c24;
-      border: 2px solid #dc3545;
-      padding: 8px 16px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .badge-success {
+      background: rgb(34 197 94 / 0.1);
+      color: #15803d;
+      border: 1px solid rgb(34 197 94 / 0.2);
     }
 
-    /* Style pour les sections vides */
+    .badge-danger {
+      background: rgb(239 68 68 / 0.1);
+      color: #dc2626;
+      border: 1px solid rgb(239 68 68 / 0.2);
+    }
+
+    /* État vide */
     .empty-state {
       text-align: center;
-      padding: 4rem 2rem;
-      color: var(--charcoal);
+      padding: 3rem 1rem;
+      color: var(--gray-500);
     }
 
-    .empty-state .bi {
-      font-size: 5rem;
-      color: var(--royal-gold);
-      margin-bottom: 2rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    .empty-state .icon {
+      font-size: 3rem;
+      color: var(--gray-300);
+      margin-bottom: 1rem;
     }
 
     .empty-state h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--rich-burgundy);
+      font-size: 1.25rem;
       font-weight: 600;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      letter-spacing: 1px;
+      color: var(--gray-700);
+      margin-bottom: 0.5rem;
     }
 
     .empty-state p {
-      color: var(--charcoal);
-      font-size: 1.1rem;
-      font-style: italic;
-      opacity: 0.8;
+      font-size: 0.875rem;
+      color: var(--gray-500);
     }
 
-    /* Responsive design */
+    /* Icônes */
+    .icon {
+      color: var(--primary);
+    }
+
+    .icon-success {
+      color: var(--success);
+    }
+
+    .icon-danger {
+      color: var(--danger);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.3s ease forwards;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .container {
-        padding: 2rem;
-        margin: 1rem;
-        border-radius: 20px;
+      .main-container {
+        padding: 0 0.75rem;
       }
-      
-      .card-body {
-        padding: 2rem;
+
+      .modern-card-body {
+        padding: 1.5rem;
       }
-      
-      h1 {
+
+      .header h1 {
         font-size: 2rem;
       }
-      
-      h2 {
-        font-size: 1.5rem;
+
+      .modern-list-item {
+        padding: 1rem;
       }
     }
 
-    /* Effet de scintillement subtil pour les éléments dorés */
-    @keyframes shimmer {
-      0% { background-position: -200px 0; }
-      100% { background-position: calc(200px + 100%) 0; }
+    /* Grille responsive */
+    .grid {
+      display: grid;
+      gap: 2rem;
     }
 
-    .btn-custom, .card::before {
-      background-size: 200px 100%;
-      animation: shimmer 3s infinite linear;
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Alertes modernes */
+    .alert-modern {
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius);
+      border: 1px solid;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .alert-success {
+      background: rgb(34 197 94 / 0.1);
+      color: #15803d;
+      border-color: rgb(34 197 94 / 0.2);
+    }
+
+    .alert-danger {
+      background: rgb(239 68 68 / 0.1);
+      color: #dc2626;
+      border-color: rgb(239 68 68 / 0.2);
+    }
+
+    /* Section stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
     }
   </style>
 </head>
 <body>
-  <div class="container my-5">
-    <h1>
-      <i class="bi bi-gem"></i> Bibliothèque Royale
-    </h1>
+  <div class="header">
+    <div class="main-container">
+      <h1>
+        <i class="bi bi-book"></i> Bibliothèque Moderne
+      </h1>
+      <p class="subtitle">Système de gestion intelligent et intuitif</p>
+    </div>
+  </div>
 
-    <!-- Liste des étudiants (dynamique) -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title">
-          <i class="bi bi-people-fill"></i> Registre des Étudiants
+  <div class="main-container">
+    <!-- Statistiques -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" id="statsEtudiants">0</span>
+        <div class="stat-label">Étudiants</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="statsLivres">0</span>
+        <div class="stat-label">Livres</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="statsEmprunts">0</span>
+        <div class="stat-label">Emprunts actifs</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="statsDisponibles">0</span>
+        <div class="stat-label">Livres disponibles</div>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- Section Étudiants -->
+      <div class="modern-card">
+        <div class="modern-card-header">
+          <h2 class="modern-card-title">
+            <i class="bi bi-people icon"></i>
+            Étudiants
+          </h2>
+        </div>
+        <div class="modern-card-body">
+          <ul id="etudiantsList" class="modern-list">
+            <div class="empty-state">
+              <i class="bi bi-person-plus icon"></i>
+              <h3>Aucun étudiant</h3>
+              <p>Commencez par ajouter votre premier étudiant</p>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Formulaire Étudiant -->
+      <div class="modern-card">
+        <div class="modern-card-header">
+          <h2 class="modern-card-title">
+            <i class="bi bi-person-plus icon"></i>
+            Nouvel étudiant
+          </h2>
+        </div>
+        <div class="modern-card-body">
+          <form id="addEtudiantForm">
+            <div class="form-group">
+              <label for="etudiantNom" class="form-label">Nom</label>
+              <input type="text" id="etudiantNom" class="form-control" placeholder="Nom de famille" required>
+            </div>
+            <div class="form-group">
+              <label for="etudiantPrenom" class="form-label">Prénom</label>
+              <input type="text" id="etudiantPrenom" class="form-control" placeholder="Prénom" required>
+            </div>
+            <div class="form-group">
+              <label for="etudiantEmail" class="form-label">Email</label>
+              <input type="email" id="etudiantEmail" class="form-control" placeholder="email@example.com" required>
+            </div>
+            <button type="submit" class="btn-modern btn-primary">
+              <i class="bi bi-plus-circle"></i>
+              Ajouter l'étudiant
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Section Livres -->
+      <div class="modern-card">
+        <div class="modern-card-header">
+          <h2 class="modern-card-title">
+            <i class="bi bi-book icon"></i>
+            Livres
+          </h2>
+        </div>
+        <div class="modern-card-body">
+          <ul id="livresList" class="modern-list">
+            <div class="empty-state">
+              <i class="bi bi-book-half icon"></i>
+              <h3>Aucun livre</h3>
+              <p>Ajoutez des livres à votre collection</p>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Formulaire Livre -->
+      <div class="modern-card">
+        <div class="modern-card-header">
+          <h2 class="modern-card-title">
+            <i class="bi bi-journal-plus icon"></i>
+            Nouveau livre
+          </h2>
+        </div>
+        <div class="modern-card-body">
+          <form id="addLivreForm">
+            <div class="form-group">
+              <label for="livreTitre" class="form-label">Titre</label>
+              <input type="text" id="livreTitre" class="form-control" placeholder="Titre du livre" required>
+            </div>
+            <div class="form-group">
+              <label for="livreAuteur" class="form-label">Auteur</label>
+              <input type="text" id="livreAuteur" class="form-control" placeholder="Nom de l'auteur" required>
+            </div>
+            <div class="form-group">
+              <label for="livreCategorie" class="form-label">Catégorie</label>
+              <input type="text" id="livreCategorie" class="form-control" placeholder="Genre du livre" required>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="livreDisponibilite" checked>
+              <label class="form-check-label" for="livreDisponibilite">Livre disponible</label>
+            </div>
+            <button type="submit" class="btn-modern btn-success">
+              <i class="bi bi-plus-circle"></i>
+              Ajouter le livre
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Emprunts (pleine largeur) -->
+    <div class="modern-card">
+      <div class="modern-card-header">
+        <h2 class="modern-card-title">
+          <i class="bi bi-clipboard-check icon"></i>
+          Emprunts actifs
         </h2>
-        <ul id="etudiantsList" class="list-group">
-          <!-- Les étudiants seront ajoutés dynamiquement ici -->
+      </div>
+      <div class="modern-card-body">
+        <ul id="empruntsList" class="modern-list">
           <div class="empty-state">
-            <i class="bi bi-person-plus-fill"></i>
-            <h3>Registre Vierge</h3>
-            <p>Inaugurez votre registre en inscrivant le premier étudiant distingué</p>
+            <i class="bi bi-journal-x icon"></i>
+            <h3>Aucun emprunt</h3>
+            <p>Les emprunts actifs apparaîtront ici</p>
           </div>
         </ul>
       </div>
     </div>
 
-    <!-- Formulaire d'ajout d'étudiant -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title">
-          <i class="bi bi-person-plus-fill"></i> Inscription d'un Nouvel Étudiant
+    <!-- Formulaire Emprunt -->
+    <div class="modern-card">
+      <div class="modern-card-header">
+        <h2 class="modern-card-title">
+          <i class="bi bi-clipboard-plus icon"></i>
+          Nouvel emprunt
         </h2>
-        <form id="addEtudiantForm">
-          <div class="mb-4">
-            <label for="etudiantNom" class="form-label">Nom de Famille</label>
-            <input type="text" id="etudiantNom" class="form-control" placeholder="Nom patronymique" required>
-          </div>
-          <div class="mb-4">
-            <label for="etudiantPrenom" class="form-label">Prénom</label>
-            <input type="text" id="etudiantPrenom" class="form-control" placeholder="Prénom usuel" required>
-          </div>
-          <div class="mb-4">
-            <label for="etudiantEmail" class="form-label">Adresse Électronique</label>
-            <input type="email" id="etudiantEmail" class="form-control" placeholder="adresse@domaine.fr" required>
-          </div>
-          <button type="submit" class="btn btn-custom">
-            <i class="bi bi-plus-circle-fill"></i> Inscrire l'Étudiant
-          </button>
-        </form>
       </div>
-    </div>
-
-    <!-- Liste des livres (dynamique) -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title">
-          <i class="bi bi-journal-bookmark-fill"></i> Collection Littéraire
-        </h2>
-        <ul id="livresList" class="list-group">
-          <!-- Les livres seront ajoutés dynamiquement ici -->
-          <div class="empty-state">
-            <i class="bi bi-book-half"></i>
-            <h3>Collection Vide</h3>
-            <p>Enrichissez votre bibliothèque avec des œuvres remarquables</p>
-          </div>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Formulaire d'ajout de livre -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title">
-          <i class="bi bi-journal-plus"></i> Acquisition d'une Nouvelle Œuvre
-        </h2>
-        <form id="addLivreForm">
-          <div class="mb-4">
-            <label for="livreTitre" class="form-label">Titre de l'Œuvre</label>
-            <input type="text" id="livreTitre" class="form-control" placeholder="Titre complet de l'ouvrage" required>
-          </div>
-          <div class="mb-4">
-            <label for="livreAuteur" class="form-label">Auteur</label>
-            <input type="text" id="livreAuteur" class="form-control" placeholder="Nom de l'auteur" required>
-          </div>
-          <div class="mb-4">
-            <label for="livreCategorie" class="form-label">Genre Littéraire</label>
-            <input type="text" id="livreCategorie" class="form-control" placeholder="Classification générique" required>
-          </div>
-          <div class="form-check mb-4">
-            <input type="checkbox" class="form-check-input" id="livreDisponibilite" checked>
-            <label class="form-check-label" for="livreDisponibilite">Œuvre disponible pour prêt</label>
-          </div>
-          <button type="submit" class="btn btn-custom">
-            <i class="bi bi-plus-circle-fill"></i> Cataloguer l'Œuvre
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Liste des emprunts (dynamique) -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title">
-          <i class="bi bi-clipboard-check-fill"></i> Registre des Prêts
-        </h2>
-        <ul id="empruntsList" class="list-group">
-          <!-- Les emprunts seront ajoutés dynamiquement ici -->
-          <div class="empty-state">
-            <i class="bi bi-journal-x"></i>
-            <h3>Aucun Prêt Actif</h3>
-            <p>Les transactions de prêt seront consignées dans ce registre</p>
-          </div>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Formulaire d'ajout d'emprunt -->
-    <div class="card mb-4">
-      <div class="card-body">
-        <h2 class="card-title">
-          <i class="bi bi-clipboard-plus"></i> Enregistrement d'un Nouveau Prêt
-        </h2>
+      <div class="modern-card-body">
         <form id="addEmpruntForm">
-          <div class="mb-4">
-            <label for="dateDebut" class="form-label">Date d'Emprunt</label>
-            <input type="date" id="dateDebut" class="form-control" required>
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label for="dateDebut" class="form-label">Date d'emprunt</label>
+              <input type="date" id="dateDebut" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="dateFin" class="form-label">Date de retour</label>
+              <input type="date" id="dateFin" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="empruntEtudiant" class="form-label">Étudiant</label>
+              <select id="empruntEtudiant" class="form-select" required>
+                <option value="">Sélectionner un étudiant</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="empruntLivre" class="form-label">Livre</label>
+              <select id="empruntLivre" class="form-select" required>
+                <option value="">Sélectionner un livre</option>
+              </select>
+            </div>
           </div>
-          <div class="mb-4">
-            <label for="dateFin" class="form-label">Échéance de Retour</label>
-            <input type="date" id="dateFin" class="form-control" required>
-          </div>
-          <div class="mb-4">
-            <label for="empruntEtudiant" class="form-label">Étudiant Emprunteur</label>
-            <select id="empruntEtudiant" class="form-select" required>
-              <option value="">Sélectionnez un étudiant inscrit</option>
-              <!-- Les options seront ajoutées dynamiquement -->
-            </select>
-          </div>
-          <div class="mb-4">
-            <label for="empruntLivre" class="form-label">Œuvre à Emprunter</label>
-            <select id="empruntLivre" class="form-select" required>
-              <option value="">Choisissez une œuvre disponible</option>
-              <!-- Les options seront ajoutées dynamiquement -->
-            </select>
-          </div>
-          <button type="submit" class="btn btn-custom">
-            <i class="bi bi-plus-circle-fill"></i> Enregistrer le Prêt
+          <button type="submit" class="btn-modern btn-primary">
+            <i class="bi bi-plus-circle"></i>
+            Créer l'emprunt
           </button>
         </form>
       </div>
@@ -590,6 +650,147 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+  <script>
+    // Variables globales pour stocker les données
+    let etudiants = [];
+    let livres = [];
+    let emprunts = [];
+
+    // Mise à jour des statistiques
+    function updateStats() {
+      document.getElementById('statsEtudiants').textContent = etudiants.length;
+      document.getElementById('statsLivres').textContent = livres.length;
+      document.getElementById('statsEmprunts').textContent = emprunts.length;
+      document.getElementById('statsDisponibles').textContent = livres.filter(livre => livre.disponible).length;
+    }
+
+    // Affichage des étudiants
+    function displayEtudiants() {
+      const container = document.getElementById('etudiantsList');
+      
+      if (etudiants.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="bi bi-person-plus icon"></i>
+            <h3>Aucun étudiant</h3>
+            <p>Commencez par ajouter votre premier étudiant</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = etudiants.map((etudiant, index) => `
+        <li class="modern-list-item fade-in-up">
+          <div style="display: flex; justify-content: between; align-items: center; gap: 1rem;">
+            <div style="flex: 1;">
+              <strong style="color: var(--gray-900); font-size: 1.1rem;">${etudiant.prenom} ${etudiant.nom}</strong>
+              <div style="color: var(--gray-600); font-size: 0.875rem; margin-top: 0.25rem;">
+                <i class="bi bi-envelope icon" style="font-size: 0.875rem;"></i>
+                ${etudiant.email}
+              </div>
+            </div>
+            <button onclick="removeEtudiant(${index})" class="btn-modern btn-danger" style="padding: 0.5rem;">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    // Affichage des livres
+    function displayLivres() {
+      const container = document.getElementById('livresList');
+      
+      if (livres.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="bi bi-book-half icon"></i>
+            <h3>Aucun livre</h3>
+            <p>Ajoutez des livres à votre collection</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = livres.map((livre, index) => `
+        <li class="modern-list-item fade-in-up">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div style="flex: 1;">
+              <strong style="color: var(--gray-900); font-size: 1.1rem;">${livre.titre}</strong>
+              <div style="color: var(--gray-600); font-size: 0.875rem; margin-top: 0.25rem;">
+                <i class="bi bi-person icon" style="font-size: 0.875rem;"></i>
+                ${livre.auteur} • ${livre.categorie}
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span class="badge-modern ${livre.disponible ? 'badge-success' : 'badge-danger'}">
+                <i class="bi bi-${livre.disponible ? 'check-circle' : 'x-circle'}"></i>
+                ${livre.disponible ? 'Disponible' : 'Emprunté'}
+              </span>
+              <button onclick="removeLivre(${index})" class="btn-modern btn-danger" style="padding: 0.5rem;">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    // Affichage des emprunts
+    function displayEmprunts() {
+      const container = document.getElementById('empruntsList');
+      
+      if (emprunts.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="bi bi-journal-x icon"></i>
+            <h3>Aucun emprunt</h3>
+            <p>Les emprunts actifs apparaîtront ici</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = emprunts.map((emprunt, index) => `
+        <li class="modern-list-item fade-in-up">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div style="flex: 1;">
+              <strong style="color: var(--gray-900); font-size: 1.1rem;">${emprunt.livre.titre}</strong>
+              <div style="color: var(--gray-600); font-size: 0.875rem; margin-top: 0.25rem;">
+                <i class="bi bi-person icon" style="font-size: 0.875rem;"></i>
+                ${emprunt.etudiant.prenom} ${emprunt.etudiant.nom}
+              </div>
+              <div style="color: var(--gray-500); font-size: 0.75rem; margin-top: 0.25rem;">
+                <i class="bi bi-calendar icon" style="font-size: 0.75rem;"></i>
+                Du ${emprunt.dateDebut} au ${emprunt.dateFin}
+              </div>
+            </div>
+            <button onclick="removeEmprunt(${index})" class="btn-modern btn-danger" style="padding: 0.5rem;">
+              <i class="bi bi-arrow-return-left"></i>
+              Retourner
+            </button>
+          </div>
+        </li>
+      `).join('');
+    }
+
+    // Mise à jour des options des select
+    function updateSelects() {
+      const etudiantSelect = document.getElementById('empruntEtudiant');
+      const livreSelect = document.getElementById('empruntLivre');
+
+      etudiantSelect.innerHTML = '<option value="">Sélectionner un étudiant</option>' +
+        etudiants.map((etudiant, index) => 
+          `<option value="${index}">${etudiant.prenom} ${etudiant.nom}</option>`
+        ).join('');
+
+      livreSelect.innerHTML = '<option value="">Sélectionner un livre</option>' +
+        livres.filter(livre => livre.disponible).map((livre, index) => {
+          const originalIndex = livres.indexOf(livre);
+          return `<option value="${originalIndex}">${livre.titre} - ${livre.auteur}</option>`;
+        }).join('');
+    }
+
+    // Fonctions de suppression
+    function removeEtudiant(index) {
+      etudiants.splice(index
